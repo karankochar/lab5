@@ -56,7 +56,8 @@ export default class AddMovie extends Component {
                         <label for="genre">Select genre</label>
                         <select class="form-control" id="genre" value={this.state.movie.moviesGenre} 
                         onChange={(e)=>{this.setState({movie: {...this.state.movie, moviesGenre: e.target.value}})}}>
-                            <option selected value='Drama'>Drama</option>
+                            <option value=''>Select a genre</option>
+                            <option value='Drama'>Drama</option>
                             <option value='Fiction'>Fiction</option>
                             <option value='Satire'>Satire</option>
                         </select>
