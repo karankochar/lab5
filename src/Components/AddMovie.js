@@ -63,13 +63,17 @@ export default class AddMovie extends Component {
                         </select>
                     </div>
                     <button type='submit' className='btn'
-                        onClick={()=>{
+                        onClick={()=>{ 
+                            if (sessionStorage.getItem("role") !== "ROLE_ADMIN") {
+                            alert('Unauthorized Access');
+                            this.props.history.push("/movies");
+                          } else{
                             axios.post(`http://localhost:9090/movies-api/movies`, this.state.movie)
                             .then((result) => {
                                 alert('Movie is added');
                                 this.props.history.push('/');
                             })
-                        }}
+                        }}}
                         >Submit</button>
                 </form>
             </div>
